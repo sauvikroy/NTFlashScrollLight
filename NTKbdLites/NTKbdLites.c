@@ -1,3 +1,6 @@
+// https://www.codeguru.com/cpp/w-p/system/keyboard/article.php/c2825/Manipulating-the-Keyboard-Lights-in-Windows-NT.htm
+// https://www.codeproject.com/Articles/43144/Keystroke-Monitoring
+
 /*
 ** NTKbdLites.c 
 **
