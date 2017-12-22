@@ -21,7 +21,7 @@
 
 #define CANCEL_EVENT_NAME	"TestThreadedFlasherEvent"
 
-#define USE_THREAD
+//#define USE_THREAD
 
 
 void __cdecl main(int argc, char **argv)
@@ -54,11 +54,10 @@ void __cdecl main(int argc, char **argv)
 
 #else
 
-// A non-threaded way to do the same thing
-//
+	// A non-threaded way to do the same thing
+	//
 
 {
-	
 	HANDLE			hndKbdDev;
 	int i;
 
@@ -71,20 +70,15 @@ void __cdecl main(int argc, char **argv)
 		exit(1);
 	}
 
-	for (i = 0; i < 20; i++)
-	{
-		FlashKeyboardLight(hndKbdDev, KEYBOARD_SCROLL_LOCK_ON, 250);
-		Sleep(250);
-	}
+	printf("\r\npress any key to exit...");
+
+	i=1;
+	do {
+		FlashKeyboardLight(hndKbdDev, i, 100);
+		 i = (i <= 4? (i << 1) : 1);
+	} while(!_kbhit());
 
 	CloseKeyboardDevice(hndKbdDev);
-
 	exit(0);
 }
 #endif
-
-
-
-
-
-
